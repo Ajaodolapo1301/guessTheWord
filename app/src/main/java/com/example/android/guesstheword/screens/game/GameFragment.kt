@@ -64,27 +64,33 @@ private lateinit var viewModel: GameViewModel
 
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
+        binding.gameViewModel = viewModel
 
 
-        binding.correctButton.setOnClickListener { viewModel.onCorrect()
 
-            updateWordText()
+        binding.setLifecycleOwner(this)
 
-        }
-
-
-        binding.skipButton.setOnClickListener {
-            viewModel.onSkip()
-
-
-            updateWordText()
-        }
+//        updateWordText()
+//        binding.correctButton.setOnClickListener {
+//            viewModel.onCorrect()
+//
+//
+//
+//        }
 
 
-    viewModel.score.observe(this, Observer {newScore->
-        binding.scoreText.text = newScore.toString()
+//        binding.skipButton.setOnClickListener {
+//            viewModel.onSkip()
+//
+//
+//
+//        }
 
-    })
+
+//    viewModel.score.observe(this, Observer {newScore->
+//        binding.scoreText.text = newScore.toString()
+//
+//    })
 
 
 
@@ -113,14 +119,6 @@ private lateinit var viewModel: GameViewModel
 
 
 
-    /**
-     * Resets the list of words and randomizes the order
-     */
-
-
-    /**
-     * Called when the game is finished
-     */
     private fun gameFinished() {
         val action = GameFragmentDirections.actionGameToScore(viewModel.score.value ?: 0)
         findNavController(this).navigate(action)

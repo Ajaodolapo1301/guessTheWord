@@ -55,7 +55,6 @@ private val _currentTime = MutableLiveData<Long>()
 
     init {
 
-
     timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND) {
 
             override fun onTick(millisUntilFinished: Long) {
@@ -75,6 +74,7 @@ private val _currentTime = MutableLiveData<Long>()
         resetList()
         nextWord()
         _score.value =0
+
     }
 
 
