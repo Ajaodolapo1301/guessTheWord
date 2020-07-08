@@ -67,8 +67,8 @@ private lateinit var viewModel: GameViewModel
         binding.gameViewModel = viewModel
 
 
-
-        binding.setLifecycleOwner(this)
+//for observers
+        binding.lifecycleOwner = this
 
 //        updateWordText()
 //        binding.correctButton.setOnClickListener {
